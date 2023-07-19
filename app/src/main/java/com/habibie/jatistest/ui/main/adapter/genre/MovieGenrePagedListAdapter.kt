@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.snackbar.Snackbar
 import com.habibie.jatistest.R
-import com.habibie.jatistest.data.model.movie.MovieGenre
+import com.habibie.jatistest.data.model.genre.MovieGenre
 import com.habibie.jatistest.data.repository.NetworkState
 import kotlinx.android.synthetic.main.movie_genre_list_item.view.*
 import kotlinx.android.synthetic.main.network_state_item.view.*

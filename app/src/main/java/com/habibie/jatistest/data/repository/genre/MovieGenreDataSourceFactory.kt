@@ -3,7 +3,7 @@ package com.habibie.jatistest.data.repository.genre
 import androidx.lifecycle.MutableLiveData
 import androidx.paging.DataSource
 import com.habibie.jatistest.data.api.MovieDbInterface
-import com.habibie.jatistest.data.model.movie.MovieGenre
+import com.habibie.jatistest.data.model.genre.MovieGenre
 import io.reactivex.disposables.CompositeDisposable
 
 class MovieGenreDataSourceFactory(
