@@ -16,6 +16,7 @@ import com.habibie.jatistest.data.repository.NetworkState
 import com.habibie.jatistest.data.repository.genre.MovieGenrePagedListRepository
 import com.habibie.jatistest.data.repository.movie.MoviePagedListRepository
 import com.habibie.jatistest.ui.main.adapter.genre.MovieGenrePagedListAdapter
+import com.habibie.jatistest.ui.main.adapter.movie.MoviePagedListAdapter
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {

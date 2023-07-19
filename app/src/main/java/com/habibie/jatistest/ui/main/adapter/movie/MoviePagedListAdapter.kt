@@ -1,4 +1,4 @@
-package com.habibie.jatistest.ui.main
+package com.habibie.jatistest.ui.main.adapter.movie
 
 import android.content.Context
 import android.view.LayoutInflater
