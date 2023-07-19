@@ -1,6 +1,7 @@
 package com.habibie.jatistest.ui.main.adapter.movie
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,11 +9,11 @@ import androidx.paging.PagedListAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.google.android.material.snackbar.Snackbar
 import com.habibie.jatistest.R
 import com.habibie.jatistest.data.api.POSTER_BASE_URL
 import com.habibie.jatistest.data.model.movie.Movie
 import com.habibie.jatistest.data.repository.NetworkState
+import com.habibie.jatistest.ui.detail.DetailActivity
 import kotlinx.android.synthetic.main.movie_list_item.view.*
 import kotlinx.android.synthetic.main.network_state_item.view.*
 
@@ -80,16 +81,10 @@ class MoviePagedListAdapter(public val context: Context) :
                 .into(itemView.cv_iv_movie_poster);
 
             itemView.setOnClickListener {
-                /*val intent = Intent(context, SingleMovie::class.java)
+                val intent = Intent(context, DetailActivity::class.java)
                 intent.putExtra("id", movie?.id)
-                context.startActivity(intent)*/
-                Snackbar.make(
-                    itemView,
-                    movie?.title ?: "Replace with your own action",
-                    Snackbar.LENGTH_LONG
-                ).show()
+                context.startActivity(intent)
             }
-
         }
     }
 
