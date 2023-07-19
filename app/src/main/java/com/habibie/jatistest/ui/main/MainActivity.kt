@@ -8,11 +8,14 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.habibie.jatistest.R
 import com.habibie.jatistest.data.api.MovieDbClient
 import com.habibie.jatistest.data.api.MovieDbInterface
-import com.habibie.jatistest.data.repository.movie.MoviePagedListRepository
 import com.habibie.jatistest.data.repository.NetworkState
+import com.habibie.jatistest.data.repository.genre.MovieGenrePagedListRepository
+import com.habibie.jatistest.data.repository.movie.MoviePagedListRepository
+import com.habibie.jatistest.ui.main.adapter.genre.MovieGenrePagedListAdapter
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -20,6 +23,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var viewModel: MainActivityViewModel
 
     lateinit var movieRepository: MoviePagedListRepository
+    lateinit var movieGenreRepository: MovieGenrePagedListRepository
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,9 +32,40 @@ class MainActivity : AppCompatActivity() {
         val apiService: MovieDbInterface = MovieDbClient.getClient()
 
         movieRepository = MoviePagedListRepository(apiService)
+        movieGenreRepository = MovieGenrePagedListRepository(apiService)
 
         viewModel = getViewModel()
 
+        /**
+         * START: Set Genre
+         */
+        val genreAdapter = MovieGenrePagedListAdapter(this)
+        val linearLayoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
+
+        rv_genre_list.layoutManager = linearLayoutManager
+        rv_genre_list.adapter = genreAdapter
+
+        viewModel.movieGenrePagedList.observe(this, Observer {
+            genreAdapter.submitList(it)
+        })
+
+        viewModel.networkStateGenre.observe(this, Observer {
+            progress_bar_popular.visibility =
+                if (viewModel.listGenreIsEmpty() && it == NetworkState.LOADING) View.VISIBLE else View.GONE
+            txt_error_popular.visibility =
+                if (viewModel.listGenreIsEmpty() && it == NetworkState.ERROR) View.VISIBLE else View.GONE
+
+            if (!viewModel.listGenreIsEmpty()) {
+                genreAdapter.setNetworkState(it)
+            }
+        })
+        /**
+         * END: Set Genre
+         */
+
+        /**
+         * START: Set Movies
+         */
         val movieAdapter = MoviePagedListAdapter(this)
         val gridLayoutManager = GridLayoutManager(this, 3)
 
@@ -60,13 +95,16 @@ class MainActivity : AppCompatActivity() {
                 movieAdapter.setNetworkState(it)
             }
         })
+        /**
+         * END: Set Movies
+         */
     }
 
     private fun getViewModel(): MainActivityViewModel {
         return ViewModelProviders.of(this, object : ViewModelProvider.Factory {
             override fun <T : ViewModel?> create(modelClass: Class<T>): T {
                 @Suppress("UNCHECKED_CAST")
-                return MainActivityViewModel(movieRepository) as T
+                return MainActivityViewModel(movieRepository, movieGenreRepository) as T
             }
         })[MainActivityViewModel::class.java]
     }
