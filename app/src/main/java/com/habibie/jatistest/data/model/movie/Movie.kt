@@ -7,8 +7,8 @@ data class Movie(
     @SerializedName("backdrop_path")
     val backdropPath: String,
     @SerializedName("genre_ids")
-    val genreIDS: List<Long>,
-    val id: Long,
+    val genreIDS: List<Int>,
+    val id: Int,
     @SerializedName("original_language")
     val originalLanguage: String,
     @SerializedName("original_title")
@@ -24,5 +24,5 @@ data class Movie(
     @SerializedName("vote_average")
     val voteAverage: Double,
     @SerializedName("vote_count")
-    val voteCount: Long
+    val voteCount: Int
 )
