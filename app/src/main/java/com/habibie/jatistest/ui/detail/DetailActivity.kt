@@ -11,7 +11,7 @@ import com.habibie.jatistest.R
 import com.habibie.jatistest.data.api.MovieDbClient
 import com.habibie.jatistest.data.api.MovieDbInterface
 import com.habibie.jatistest.data.api.POSTER_BASE_URL
-import com.habibie.jatistest.data.model.movie.MovieDetails
+import com.habibie.jatistest.data.model.movie_detail.MovieDetails
 import com.habibie.jatistest.data.repository.NetworkState
 import com.habibie.jatistest.data.repository.movie.MovieDetailRepository
 import kotlinx.android.synthetic.main.activity_detail.*

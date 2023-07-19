@@ -4,7 +4,7 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.habibie.jatistest.data.api.MovieDbInterface
-import com.habibie.jatistest.data.model.movie.MovieDetails
+import com.habibie.jatistest.data.model.movie_detail.MovieDetails
 import com.habibie.jatistest.data.repository.NetworkState
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers

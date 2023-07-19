@@ -1,6 +1,7 @@
-package com.habibie.jatistest.data.model.movie
+package com.habibie.jatistest.data.model.movie_detail
 
 import com.google.gson.annotations.SerializedName
+import com.habibie.jatistest.data.model.genre.MovieGenre
 
 data class MovieDetails(
     val adult: Boolean,

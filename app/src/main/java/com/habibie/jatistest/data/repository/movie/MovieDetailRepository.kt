@@ -2,7 +2,7 @@ package com.habibie.jatistest.data.repository.movie
 
 import androidx.lifecycle.LiveData
 import com.habibie.jatistest.data.api.MovieDbInterface
-import com.habibie.jatistest.data.model.movie.MovieDetails
+import com.habibie.jatistest.data.model.movie_detail.MovieDetails
 import com.habibie.jatistest.data.repository.NetworkState
 import io.reactivex.disposables.CompositeDisposable
 
