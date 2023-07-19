@@ -1,6 +1,6 @@
 package com.habibie.jatistest.data.api
 
-import com.habibie.jatistest.data.model.MovieResponse
+import com.habibie.jatistest.data.model.movie.MovieResponse
 import io.reactivex.Single
 import retrofit2.http.GET
 import retrofit2.http.Query

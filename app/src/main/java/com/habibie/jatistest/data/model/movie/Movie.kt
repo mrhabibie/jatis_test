@@ -1,4 +1,4 @@
-package com.habibie.jatistest.data.model
+package com.habibie.jatistest.data.model.movie
 
 import com.google.gson.annotations.SerializedName
 

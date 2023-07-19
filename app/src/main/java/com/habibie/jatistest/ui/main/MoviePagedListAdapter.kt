@@ -11,7 +11,7 @@ import com.bumptech.glide.Glide
 import com.google.android.material.snackbar.Snackbar
 import com.habibie.jatistest.R
 import com.habibie.jatistest.data.api.POSTER_BASE_URL
-import com.habibie.jatistest.data.model.Movie
+import com.habibie.jatistest.data.model.movie.Movie
 import com.habibie.jatistest.data.repository.NetworkState
 import kotlinx.android.synthetic.main.movie_list_item.view.*
 import kotlinx.android.synthetic.main.network_state_item.view.*

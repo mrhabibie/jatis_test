@@ -5,7 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.paging.PageKeyedDataSource
 import com.habibie.jatistest.data.api.FIRST_PAGE
 import com.habibie.jatistest.data.api.MovieDbInterface
-import com.habibie.jatistest.data.model.Movie
+import com.habibie.jatistest.data.model.movie.Movie
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 

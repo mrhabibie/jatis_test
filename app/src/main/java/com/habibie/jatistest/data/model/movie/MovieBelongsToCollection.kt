@@ -1,4 +1,4 @@
-package com.habibie.jatistest.data.model
+package com.habibie.jatistest.data.model.movie
 
 data class MovieBelongsToCollection(
     val id: Long,

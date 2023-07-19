@@ -6,7 +6,7 @@ import androidx.paging.LivePagedListBuilder
 import androidx.paging.PagedList
 import com.habibie.jatistest.data.api.MovieDbInterface
 import com.habibie.jatistest.data.api.POST_PER_PAGE
-import com.habibie.jatistest.data.model.Movie
+import com.habibie.jatistest.data.model.movie.Movie
 import io.reactivex.disposables.CompositeDisposable
 
 class MoviePagedListRepository(private val apiService: MovieDbInterface) {
