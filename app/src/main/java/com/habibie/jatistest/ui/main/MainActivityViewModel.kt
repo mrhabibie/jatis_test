@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.paging.PagedList
 import com.habibie.jatistest.data.model.movie.Movie
-import com.habibie.jatistest.data.repository.MoviePagedListRepository
+import com.habibie.jatistest.data.repository.movie.MoviePagedListRepository
 import com.habibie.jatistest.data.repository.NetworkState
 import io.reactivex.disposables.CompositeDisposable
 

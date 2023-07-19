@@ -1,4 +1,4 @@
-package com.habibie.jatistest.data.repository
+package com.habibie.jatistest.data.repository.movie
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Transformations
@@ -7,6 +7,7 @@ import androidx.paging.PagedList
 import com.habibie.jatistest.data.api.MovieDbInterface
 import com.habibie.jatistest.data.api.POST_PER_PAGE
 import com.habibie.jatistest.data.model.movie.Movie
+import com.habibie.jatistest.data.repository.NetworkState
 import io.reactivex.disposables.CompositeDisposable
 
 class MoviePagedListRepository(private val apiService: MovieDbInterface) {

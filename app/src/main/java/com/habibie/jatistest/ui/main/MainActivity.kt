@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.habibie.jatistest.R
 import com.habibie.jatistest.data.api.MovieDbClient
 import com.habibie.jatistest.data.api.MovieDbInterface
-import com.habibie.jatistest.data.repository.MoviePagedListRepository
+import com.habibie.jatistest.data.repository.movie.MoviePagedListRepository
 import com.habibie.jatistest.data.repository.NetworkState
 import kotlinx.android.synthetic.main.activity_main.*
 

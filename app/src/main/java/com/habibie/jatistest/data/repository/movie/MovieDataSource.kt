@@ -1,4 +1,4 @@
-package com.habibie.jatistest.data.repository
+package com.habibie.jatistest.data.repository.movie
 
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
@@ -6,6 +6,7 @@ import androidx.paging.PageKeyedDataSource
 import com.habibie.jatistest.data.api.FIRST_PAGE
 import com.habibie.jatistest.data.api.MovieDbInterface
 import com.habibie.jatistest.data.model.movie.Movie
+import com.habibie.jatistest.data.repository.NetworkState
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 

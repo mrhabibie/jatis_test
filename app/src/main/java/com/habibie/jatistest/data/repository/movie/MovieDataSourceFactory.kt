@@ -1,4 +1,4 @@
-package com.habibie.jatistest.data.repository
+package com.habibie.jatistest.data.repository.movie
 
 import androidx.lifecycle.MutableLiveData
 import androidx.paging.DataSource
