@@ -48,4 +48,9 @@
     <string name="sort_by">Sort By:</string>
     <string name="recent">Recent</string>
     <string name="popularity">Popularity</string>
+    <string name="unknown">Unknown</string>
+    <string name="rating_null">0</string>
+    <string name="from_ten">/ 10</string>
+    <string name="review_date">11 Agustus 1998</string>
+    <string name="review">Review :</string>
 </resources>

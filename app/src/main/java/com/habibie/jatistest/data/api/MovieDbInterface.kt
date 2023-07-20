@@ -1,8 +1,8 @@
 package com.habibie.jatistest.data.api
 
 import com.habibie.jatistest.data.model.genre.MovieGenreResponse
-import com.habibie.jatistest.data.model.movie_detail.MovieDetails
 import com.habibie.jatistest.data.model.movie.MovieResponse
+import com.habibie.jatistest.data.model.movie_detail.MovieDetails
 import com.habibie.jatistest.data.model.review.MovieReviewResponse
 import io.reactivex.Single
 import retrofit2.http.GET
@@ -23,5 +23,8 @@ interface MovieDbInterface {
     fun getMovieDetail(@Path("movie_id") id: Int): Single<MovieDetails>
 
     @GET("/3/movie/{movie_id}/reviews")
-    fun getMovieReview(@Path("movie_id") id: Int): Single<MovieReviewResponse>
+    fun getMovieReview(
+        @Path("movie_id") id: Int,
+        @Query("page") page: Int,
+    ): Single<MovieReviewResponse>
 }

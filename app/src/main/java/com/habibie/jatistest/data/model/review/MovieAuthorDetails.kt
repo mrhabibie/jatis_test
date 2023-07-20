@@ -7,5 +7,5 @@ data class MovieAuthorDetails(
     val username: String,
     @SerializedName("avatar_path")
     val avatarPath: String? = null,
-    val rating: Int? = null
+    val rating: Double? = null
 )

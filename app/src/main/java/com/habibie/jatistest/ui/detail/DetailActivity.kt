@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.habibie.jatistest.R
 import com.habibie.jatistest.data.api.MovieDbClient
@@ -14,6 +15,8 @@ import com.habibie.jatistest.data.api.POSTER_BASE_URL
 import com.habibie.jatistest.data.model.movie_detail.MovieDetails
 import com.habibie.jatistest.data.repository.NetworkState
 import com.habibie.jatistest.data.repository.movie.MovieDetailRepository
+import com.habibie.jatistest.data.repository.review.ReviewPagedListRepository
+import com.habibie.jatistest.ui.main.adapter.review.ReviewPagedListAdapter
 import kotlinx.android.synthetic.main.activity_detail.*
 import java.text.NumberFormat
 import java.util.*
@@ -21,6 +24,7 @@ import java.util.*
 class DetailActivity : AppCompatActivity() {
     private lateinit var viewModel: DetailViewModel
     private lateinit var movieDetailRepository: MovieDetailRepository
+    private lateinit var reviewRepository: ReviewPagedListRepository
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,10 +33,21 @@ class DetailActivity : AppCompatActivity() {
         val movieId: Int = intent.getIntExtra("id", 1)
         val apiService: MovieDbInterface = MovieDbClient.getClient()
         movieDetailRepository = MovieDetailRepository(apiService)
+        reviewRepository = ReviewPagedListRepository(apiService)
 
         viewModel = getViewModel(movieId)
         viewModel.movieDetail.observe(this) {
             bindUi(it)
+        }
+
+        val reviewAdapter = ReviewPagedListAdapter(this)
+        val linearLayoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
+
+        review_layout.layoutManager = linearLayoutManager
+        review_layout.adapter = reviewAdapter
+
+        viewModel.reviewPagedList.observe(this) {
+            reviewAdapter.submitList(it)
         }
 
         viewModel.networkState.observe(this) {
@@ -63,7 +78,7 @@ class DetailActivity : AppCompatActivity() {
         return ViewModelProviders.of(this, object : ViewModelProvider.Factory {
             override fun <T : ViewModel?> create(modelClass: Class<T>): T {
                 @Suppress("UNCHECKED_CAST")
-                return DetailViewModel(movieDetailRepository, movieId) as T
+                return DetailViewModel(movieDetailRepository, reviewRepository, movieId) as T
             }
         })[DetailViewModel::class.java]
     }
